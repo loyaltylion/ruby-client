@@ -30,7 +30,7 @@ module LoyaltyLion
 
     def get_customer_auth_code(id)
       params = {
-        :user_id => id
+        :customer_id => id
       }
       response = post('/customers/authenticate', params).to_hash
       response['auth_token']
