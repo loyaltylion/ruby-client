@@ -28,7 +28,7 @@ module LoyaltyLion
       }
     end
 
-    def get_customer_auth_code(id)
+    def get_customer_auth_token(id)
       params = {
         :customer_id => id
       }
