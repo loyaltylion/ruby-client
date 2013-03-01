@@ -6,6 +6,8 @@ module LoyaltyLion
     base_uri 'http://api.loyaltylion.com/v1'
 
     def initialize(token, secret)
+      @token = token
+      @secret = secret
       @auth = { :token => token, :secret => secret }
     end
 
