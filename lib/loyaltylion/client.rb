@@ -5,6 +5,8 @@ module LoyaltyLion
     include HTTParty
     base_uri 'http://api.loyaltylion.com/v1'
 
+    attr_reader :token, :secret
+
     def initialize(token, secret)
       @token = token
       @secret = secret
