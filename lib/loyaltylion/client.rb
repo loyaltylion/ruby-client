@@ -7,10 +7,13 @@ module LoyaltyLion
 
     attr_reader :token, :secret
 
-    def initialize(token, secret)
+    def initialize(token, secret, options = {})
       @token = token
       @secret = secret
       @auth = { :token => token, :secret => secret }
+      if options[:base_uri]
+        Client.base_uri options[:base_uri]
+      end
     end
 
     def post(path, params)

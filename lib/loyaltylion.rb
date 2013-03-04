@@ -3,8 +3,8 @@ require 'loyaltylion/client'
 
 module LoyaltyLion
   class << self
-    def new(id, secret)
-      LoyaltyLion::Client.new(id, secret)
+    def new(id, secret, options = {})
+      LoyaltyLion::Client.new(id, secret, options)
     end
   end
 end
