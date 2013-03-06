@@ -31,7 +31,7 @@ module LoyaltyLion
       }
       response = post('/events', params)
       return {
-        :success => response.status == 201
+        :success => response.code == 201
       }
     end
 
