@@ -20,13 +20,12 @@ module LoyaltyLion
       self.class.post(path, :query => @auth.merge(params))
     end
 
-    def track(name, customer_id, customer_email, ref_id, properties = {})
+    def track(name, customer_id, customer_email, properties = {})
       params = {
         :name => name,
         :date => DateTime.now.iso8601,
         :customer_id => customer_id,
         :customer_email => customer_email,
-        :ref_id => ref_id,
         :properties => properties
       }
       response = post('/events', params)
