@@ -1,21 +1,21 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
+
 require 'loyaltylion/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "loyaltylion"
-  gem.version       = LoyaltyLion::VERSION
-  gem.authors       = ["Dave Clark"]
-  gem.email         = ["dave@prizgo.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.name = 'loyaltylion'
+  gem.version = LoyaltyLion::VERSION
+  gem.author = 'LoyaltyLion'
+  gem.email = 'support@loyaltylion.com'
+  gem.description = 'Interact with LoyaltyLion from Ruby. See https://loyaltylion.com for more'
+  gem.summary = 'Ruby bindings for the LoyaltyLion API'
+  gem.homepage = 'https://loyaltylion.com/docs'
+  gem.required_ruby_version '>= 1.9.3'
 
-  gem.files         = `git ls-files`.split($/)
-  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.require_paths = ["lib"]
+  gem.add_dependency('rest-client', '>= 1.4', '< 4.0')
 
-  gem.add_runtime_dependency 'httparty', '>= 0.8.1'
+  gem.files = `git ls-files`.split("\n")
+  gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
+  gem.test_files = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ['lib']
 end
