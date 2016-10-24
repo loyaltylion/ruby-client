@@ -1,46 +1,57 @@
 require 'httparty'
+require 'json'
+require 'loyaltylion/version'
+require 'loyaltylion/errors'
 
 module LoyaltyLion
   class Client
     include HTTParty
-    base_uri 'http://api.loyaltylion.com/v1'
+    base_uri 'https://api.loyaltylion.com/v2'
 
     attr_reader :token, :secret
 
-    def initialize(token, secret, options = {})
-      @token = token
-      @secret = secret
-      @auth = { :token => token, :secret => secret }
-      if options[:base_uri]
-        Client.base_uri options[:base_uri]
+    def initialize(opts = {})
+      @token = opts[:token]
+      @secret = opts[:secret]
+    end
+
+    def orders
+      LoyaltyLion::Order.new(self)
+    end
+
+    def activities
+      LoyaltyLion::Activity.new(self)
+    end
+
+    def request(opts)
+      method = opts[:method] || :get
+      path = opts[:path]
+      body = opts[:body] || {}
+      headers = {
+        'user-agent' => "LoyaltyLion Ruby v#{LoyaltyLion::VERSION}",
+      }
+
+      unless body.empty?
+        headers['content-type'] = 'application/json'
+        body = JSON.generate(body)
+      end
+
+      res = self.class.send(method, path,
+        :basic_auth => {
+          :token => token,
+          :secret => secret,
+        },
+        :headers => headers,
+        :body => body.empty? ? nil : body
+      )
+
+      if res.code >= 200 && res.code < 300
+        res.parsed_response
+      elsif res.code >= 400 && res.code < 500
+        raise LoyaltyLion::ClientError, res.parsed_response.inspect
+      else
+        raise LoyaltyLion::ServerError, res.parsed_response.inspect
       end
     end
-
-    def post(path, params)
-      self.class.post(path, :query => @auth.merge(params))
-    end
-
-    def track(name, customer_id, customer_email, properties = {})
-      params = {
-        :name => name,
-        :date => DateTime.now.iso8601,
-        :customer_id => customer_id,
-        :customer_email => customer_email,
-        :properties => properties
-      }
-      response = post('/events', params)
-      return {
-        :success => response.code == 201
-      }
-    end
-
-    def get_customer_auth_token(id)
-      params = {
-        :customer_id => id
-      }
-      response = post('/customers/authenticate', params).to_hash
-      response['auth_token']
-    end
-
   end
 end
