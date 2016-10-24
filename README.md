@@ -43,7 +43,7 @@ loyaltylion.orders.create(
 )
 ```
 
-The 'orders.create` method accepts a hash containing all [supported fields](https://loyaltylion.com/docs/tracking-activities-and-orders#using-the-orders-api)
+The `orders.create` method accepts a hash containing all [supported fields](https://loyaltylion.com/docs/tracking-activities-and-orders#using-the-orders-api)
 
 ### Update an existing order
 
