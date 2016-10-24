@@ -12,7 +12,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
-    hashdiff (0.2.3)
+    hashdiff (0.3.0)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -23,6 +23,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    rake (11.3.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -38,7 +39,7 @@ GEM
     rspec-support (3.5.0)
     safe_yaml (1.0.4)
     slop (3.6.0)
-    webmock (1.22.6)
+    webmock (2.1.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -49,5 +50,9 @@ PLATFORMS
 DEPENDENCIES
   loyaltylion!
   pry
+  rake
   rspec (~> 3.5.0)
-  webmock
+  webmock (~> 2.1.0)
+
+BUNDLED WITH
+   1.13.2
