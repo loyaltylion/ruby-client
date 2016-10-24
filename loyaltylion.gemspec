@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.version = LoyaltyLion::VERSION
   gem.author = 'LoyaltyLion'
   gem.email = 'support@loyaltylion.com'
-  gem.description = 'Interact with LoyaltyLion from Ruby. See https://loyaltylion.com for more'
+  gem.description = 'Interact with LoyaltyLion from Ruby. See https://loyaltylion.com/docs for more'
   gem.summary = 'Ruby bindings for the LoyaltyLion API'
   gem.homepage = 'https://loyaltylion.com/docs'
 
