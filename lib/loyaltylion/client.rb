@@ -38,8 +38,8 @@ module LoyaltyLion
 
       res = self.class.send(method, path,
         :basic_auth => {
-          :token => token,
-          :secret => secret,
+          :username => token,
+          :password => secret,
         },
         :headers => headers,
         :body => body.empty? ? nil : body

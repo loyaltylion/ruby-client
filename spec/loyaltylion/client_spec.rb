@@ -23,6 +23,13 @@ RSpec.describe LoyaltyLion::Client do
         expect(WebMock).to have_requested(:get, 'https://api.loyaltylion.com/v2/orders')
       end
 
+      it 'authenticates with token/secret' do
+        client.request(:method => :get, :path => '/orders')
+        expect(WebMock).to have_requested(:get, 'https://api.loyaltylion.com/v2/orders').with(
+          :basic_auth => %w(abc 123),
+        )
+      end
+
       it 'sets custom user agent' do
         client.request(:method => :get, :path => '/orders')
         expect(WebMock).to have_requested(:get, 'https://api.loyaltylion.com/v2/orders').with(
