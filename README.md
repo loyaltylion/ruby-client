@@ -82,3 +82,7 @@ loyaltylion.activities.approve('review', '1001')
 # or...
 loyaltylion.activities.decline('review', '1001')
 ```
+
+### Changelog
+
+* v1.0.0 - overhaul client API, bring in-line with v2 LoyaltyLion API
