@@ -10,9 +10,8 @@ Gem::Specification.new do |gem|
   gem.description = 'Interact with LoyaltyLion from Ruby. See https://loyaltylion.com for more'
   gem.summary = 'Ruby bindings for the LoyaltyLion API'
   gem.homepage = 'https://loyaltylion.com/docs'
-  gem.required_ruby_version '>= 1.9.3'
 
-  gem.add_dependency('rest-client', '>= 1.4', '< 4.0')
+  gem.add_dependency('httparty', '>= 0.8.1')
 
   gem.files = `git ls-files`.split("\n")
   gem.executables = gem.files.grep(%r{^bin/}).map { |f| File.basename(f) }
