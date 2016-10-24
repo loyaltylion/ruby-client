@@ -62,5 +62,8 @@ Style/TrailingCommaInArguments:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/ClosingParenthesisIndentation:
+  Enabled: false
+
 Performance/Casecmp:
   Enabled: false
