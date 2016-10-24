@@ -3,6 +3,7 @@ gemspec
 
 group :development do
   gem 'pry'
-  gem 'rspec'
-  gem 'rspec-mocks'
+  gem 'rspec', '~> 3.5.0'
+  gem 'guard-rspec', :require => false
+  gem 'webmock'
 end
