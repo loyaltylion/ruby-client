@@ -27,7 +27,7 @@ Create a new instance of `LoyaltyLion` with your LoyaltyLion token and secret, w
 ```ruby
 require 'loyaltylion'
 
-loyaltylion = LoyaltyLion.new(:token => 'abc', :secret => '123')
+loyaltylion = LoyaltyLion::Client.new(:token => 'abc', :secret => '123')
 ```
 
 ### Send a new order to LoyaltyLion
