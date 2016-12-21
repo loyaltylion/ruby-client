@@ -65,7 +65,7 @@ loyaltylion.orders.update('34b8c96a3b',
 
 ```ruby
 loyaltylion.activities.create(
-  :name => 'signup',
+  :name => '$signup',
   :customer_id => '1001',
   :customer_email => 'alice@example.com',
 )
